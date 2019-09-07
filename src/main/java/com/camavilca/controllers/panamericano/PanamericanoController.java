@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +21,7 @@ import pe.albatross.zelpers.miscelanea.ObjectUtil;
 import pe.albatross.zelpers.miscelanea.PhobosException;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/admin")
 public class PanamericanoController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -30,12 +31,14 @@ public class PanamericanoController {
     PanamericanoService service;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute(rutaModulo, rutaModulo);
         return "panamericano/index";
     }
 
     @RequestMapping("deportes")
-    public String deporte() {
+    public String deporte(Model model) {
+        model.addAttribute(rutaModulo, rutaModulo);
         return "panamericano/deportes";
     }
 
@@ -54,7 +57,7 @@ public class PanamericanoController {
         }
         return response;
     }
-    
+
     @ResponseBody
     @RequestMapping("delete")
     public JsonResponse delete(@RequestBody Panamericano panamericano) {

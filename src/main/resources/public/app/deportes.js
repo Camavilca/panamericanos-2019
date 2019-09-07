@@ -25,7 +25,7 @@ new Vue({
         },
         save() {
             let $vue = this;
-            axios.post("/save", $vue.deporte).then(response => {
+            axios.post("/admin/save", $vue.deporte).then(response => {
                 if (response.data.success) {
                     $vue.all();
                     $vue.$refs.modalDeporte.close();
@@ -48,7 +48,7 @@ new Vue({
                 confirmButtonText: "Aceptar"
             }).then(result => {
                 if (result.value) {
-                    axios.post("/delete", deporte).then(response => {
+                    axios.post("/admin/delete", deporte).then(response => {
                         if (response.data.success) {
                             $vue.all();
                             notify2(response.data.message, "info");
@@ -63,7 +63,7 @@ new Vue({
         },
         all() {
             const $vue = this;
-            axios.get("/all").then(response => {
+            axios.get("/admin/all").then(response => {
                 if (response.data.success) {
                     console.log(response.data.data)
                     $vue.deportes = response.data.data;
