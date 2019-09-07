@@ -76,6 +76,7 @@ new Vue({
         },
         update(deporte) {
             const $vue = this;
+            $vue.modalDeporte.title = `Editar ${deporte.nombre}`;
             $vue.openModalDeporte();
             $vue.deporte = deporte;
         }
