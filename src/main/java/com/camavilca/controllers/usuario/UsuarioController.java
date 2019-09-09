@@ -38,7 +38,6 @@ public class UsuarioController {
     public JsonResponse save(@RequestBody Usuario usuario) {
         JsonResponse response = new JsonResponse();
         try {
-            ObjectUtil.printAttr(usuario);
             service.save(usuario);
             response.setMessage("Registro Satisfactorio");
             response.setSuccess(Boolean.TRUE);
@@ -49,10 +48,9 @@ public class UsuarioController {
         } catch (Exception e) {
             ExceptionHandler.handleException(e, response);
         }
-//        return "panamericano/index";
-//        return "redirect:/admin";
         return response;
     }
+    
 
     @ResponseBody
     @RequestMapping("iniciar")
@@ -60,7 +58,6 @@ public class UsuarioController {
         JsonResponse response = new JsonResponse();
         try {
             Usuario usua = service.iniciar(usuario);
-            ObjectUtil.printAttr(usua);
             response.setMessage("Bienvenido");
             response.setSuccess(Boolean.TRUE);
             List<String> datos = Arrays.asList("admin", usua.getNombre());
@@ -71,8 +68,6 @@ public class UsuarioController {
             ExceptionHandler.handleException(e, response);
         }
         return response;
-//        return "panamericano/index";
-//        return "redirect:/admin";
     }
 
 }

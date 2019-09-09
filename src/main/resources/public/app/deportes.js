@@ -29,7 +29,7 @@ new Vue({
                 if (response.data.success) {
                     $vue.all();
                     $vue.$refs.modalDeporte.close();
-                    notify2(response.data.message, "success");
+                    notify2(response.data.message, "success", "Deporte<br/>", "fa fa-check");
                 } else {
                     notify2(response.data.message, "error");
                 }
@@ -51,7 +51,7 @@ new Vue({
                     axios.post("/admin/delete", deporte).then(response => {
                         if (response.data.success) {
                             $vue.all();
-                            notify2(response.data.message, "info");
+                            notify2(response.data.message, "info", "ssssssssss");
                         } else {
                             notify2(response.data.message, "error");
                         }

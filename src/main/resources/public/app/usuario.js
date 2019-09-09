@@ -1,3 +1,5 @@
+/* global MESSAGES, axios */
+
 new Vue({
     el: "#usuarioVUE",
     data: {
@@ -7,16 +9,10 @@ new Vue({
     methods: {
         registro() {
             const $vue = this;
-            console.log("==================================")
-            console.log("==================================")
-            console.log($vue.usuario);
             axios.post("/registro", $vue.usuario).then(response => {
                 if (response.data.success) {
                     var datos = response.data.data;
-                    var ruta = datos[0];
-                    console.log(response.data.data);
-                    console.log(ruta);
-                    window.location.replace(`/${ruta}`);
+                    window.location.replace(`/${datos[0]}`);
                     notify2(response.data.message, "success");
                 } else {
                     notify2(response.data.message, "error");
@@ -30,10 +26,7 @@ new Vue({
             axios.post("/iniciar", $vue.usuario).then(response => {
                 if (response.data.success) {
                     var datos = response.data.data;
-                    var ruta = datos[0];
-                    console.log(response.data.data);
-                    console.log(ruta);
-                    window.location.replace(`/${ruta}`);
+                    window.location.replace(`/${datos[0]}`);
                     notify2(response.data.message, "success");
                 } else {
                     notify2(response.data.message, "error");

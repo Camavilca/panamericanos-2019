@@ -66,7 +66,7 @@ function notify2(message, type, tit, ic) {
         iziToast.show({
             title: title,
             message: message,
-            icon: icon,
+            icon: ic,
             color: typeO.color,
         });
     }, 500);
@@ -544,7 +544,7 @@ $.fn.cleanAll = function ()
 
 $(document).ready(function () {
     //Initialize tooltips
-    $('.nav-tabs > li a[title]').tooltip();
+//    $('.nav-tabs > li a[title]').tooltip();
 
     //Wizard
     $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
