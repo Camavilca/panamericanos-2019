@@ -7,7 +7,7 @@ new Vue({
         modalDeporte: {
             id: "modalDeporte",
             header: true,
-            title: 'Nuevo Deporte',
+            title: 'Nuevo Contacto',
             okbtn: 'Aceptar',
             modalSize: 'modal-lg',
             processing: false
