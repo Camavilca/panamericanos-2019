@@ -7,11 +7,10 @@ import org.springframework.stereotype.Service;
 import com.camavilca.dao.PanamericanoDAO;
 import java.util.List;
 import pe.albatross.zelpers.miscelanea.PhobosException;
-import com.camavilca.controllers.contacto.ContactoService;
 
 @Service
 @org.springframework.transaction.annotation.Transactional(readOnly = true)
-public class PanamericanoServiceImp implements ContactoService {
+public class PanamericanoServiceImp implements PanamericanoService {
 
     @Autowired
     PanamericanoDAO repository;
@@ -40,6 +39,11 @@ public class PanamericanoServiceImp implements ContactoService {
     @Transactional
     public void delete(Panamericano panamericano) {
         repository.delete(panamericano);
+    }
+
+    @Override
+    public List<Panamericano> buscar(String nombre) {
+        return repository.findContacto(nombre);
     }
 
 }

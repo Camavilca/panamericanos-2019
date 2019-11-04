@@ -12,6 +12,7 @@ new Vue({
             modalSize: 'modal-lg',
             processing: false
         },
+        nombre:null
     },
     mounted() {
         const $vue = this;
@@ -79,6 +80,18 @@ new Vue({
             $vue.modalDeporte.title = `Editar ${deporte.nombre}`;
             $vue.openModalDeporte();
             $vue.deporte = deporte;
+        },
+        buscarContacto(){
+         axios.get("/admin/search",{params:{nombre:this.nombre}}).then(response => {
+                if (response.data.success) {
+                    console.log(response.data.data)
+                    $vue.deportes = response.data.data;
+                } else {
+                    notify2(response.data.message, "error");
+                }
+            }).catch((err) => {
+                notify2(MESSAGES.errorComunicacion, "error");
+            });
         }
     }
 });

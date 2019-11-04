@@ -11,4 +11,6 @@ public interface PanamericanoService {
 
     void delete(Panamericano panamericano);
 
+    List<Panamericano> buscar(String nombre);
+
 }

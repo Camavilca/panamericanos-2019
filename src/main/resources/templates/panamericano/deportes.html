@@ -11,19 +11,22 @@
                     <div class="row mb-4">
                         <div class="col-md-4">
                             <h2 class="text-primary">
-                                Deportes
+                                Contactos
                             </h2>
+                        </div>
+                        <div class="">
+                            <input v-model="nombre" class="form-control" v-on:keyup.enter="buscarContacto">
                         </div>
                     </div>
                     <div class="row">
-                        <button class="btn btn-outline-primary float-right my-3" v-on:click="openModalDeporte">Nuevo Deporte</button>
+                        <button class="btn btn-outline-primary float-right my-3" v-on:click="openModalDeporte">Nuevo Contacto</button>
                         <div class=" card col-sm-12 col-md-12">
                             <div class="card-body">
                                 <table class="table table-striped">
                                     <tr>
                                         <th class="m-3">Nombre</th>
-                                        <th>Historia</th>
-                                        <th>Descripcion</th>
+                                        <th>Usuario</th>
+                                        <th>Numero de celular</th>
                                         <th></th>
                                     </tr>
                                     <tr v-for="item in deportes">
