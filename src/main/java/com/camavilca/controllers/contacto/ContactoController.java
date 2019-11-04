@@ -1,4 +1,4 @@
-package com.camavilca.controllers.panamericano;
+package com.camavilca.controllers.contacto;
 
 import com.camavilca.model.Panamericano;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -19,11 +19,10 @@ import pe.albatross.zelpers.miscelanea.JsonHelper;
 import pe.albatross.zelpers.miscelanea.JsonResponse;
 import pe.albatross.zelpers.miscelanea.ObjectUtil;
 import pe.albatross.zelpers.miscelanea.PhobosException;
-import com.camavilca.controllers.contacto.ContactoService;
 
 @Controller
 @RequestMapping("/admin")
-public class PanamericanoController {
+public class ContactoController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final String rutaModulo = this.getClass().getAnnotation(RequestMapping.class).value()[0];

@@ -1,4 +1,4 @@
-package com.camavilca.controllers.panamericano;
+package com.camavilca.controllers.contacto;
 
 import com.camavilca.model.Panamericano;
 import javax.transaction.Transactional;
@@ -7,11 +7,10 @@ import org.springframework.stereotype.Service;
 import com.camavilca.dao.PanamericanoDAO;
 import java.util.List;
 import pe.albatross.zelpers.miscelanea.PhobosException;
-import com.camavilca.controllers.contacto.ContactoService;
 
 @Service
 @org.springframework.transaction.annotation.Transactional(readOnly = true)
-public class PanamericanoServiceImp implements ContactoService {
+public class ContactoServiceImp implements ContactoService {
 
     @Autowired
     PanamericanoDAO repository;
