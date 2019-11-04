@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface PanamericanoDAO extends JpaRepository<Panamericano, Long> {
 
     @Query(value = "SELECT * FROM panamericano u WHERE u.nombre = ?1", nativeQuery = true)
-    List<Panamericano> findContacto(String nombre);
+    Panamericano findContacto(String nombre);
 }

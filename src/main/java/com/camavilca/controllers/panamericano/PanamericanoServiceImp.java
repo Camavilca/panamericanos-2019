@@ -42,7 +42,7 @@ public class PanamericanoServiceImp implements PanamericanoService {
     }
 
     @Override
-    public List<Panamericano> buscar(String nombre) {
+    public Panamericano buscar(String nombre) {
         return repository.findContacto(nombre);
     }
 

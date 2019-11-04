@@ -8,20 +8,28 @@
         <div layout:fragment="CONTAINER">
             <section id="deportesVUE" class="animated fadeInDown  m-t-sxl" v-cloak="">
                 <div class="container">
-                    <div class="row mb-4">
+                    <div class="row mb-4 mt-5">
                         <div class="col-md-4">
                             <h2 class="text-primary">
                                 Contactos
                             </h2>
                         </div>
-                        <div class="">
-                            <input v-model="nombre" class="form-control" v-on:keyup.enter="buscarContacto">
+                        <div class="my-2">
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <input v-model="nombre" class="form-control">
+                                </div>
+                                <div class="col-sm-5">
+                                    <button v-on:click="buscarContacto" class="btn btn-primary">BUSCAR</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <button class="btn btn-outline-primary float-right my-3" v-on:click="openModalDeporte">Nuevo Contacto</button>
                         <div class=" card col-sm-12 col-md-12">
                             <div class="card-body">
+
                                 <table class="table table-striped">
                                     <tr>
                                         <th class="m-3">Nombre</th>
@@ -34,10 +42,10 @@
                                             <span class="text-primary text-capitalize" v-text="item.nombre"></span>
                                         </th>
                                         <th>
-                                            <span class="text-success text-capitalize" v-text="item.descripcion"></span>
+                                            <span class="text-secondary text-capitalize" v-text="item.historia"></span>
                                         </th>
                                         <th>
-                                            <span class="text-secondary text-capitalize" v-text="item.historia"></span>
+                                            <span class="text-success text-capitalize" v-text="item.descripcion"></span>
                                         </th>
                                         <td>
                                             <div class="btn-group dropleft">

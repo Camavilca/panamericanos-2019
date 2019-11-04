@@ -60,17 +60,16 @@ public class PanamericanoController {
 
     @ResponseBody
     @RequestMapping("search")
-    public JsonResponse search(@RequestParam String nombre) {
+    public JsonResponse search(@RequestParam("nombre") String nombre) {
         JsonResponse response = new JsonResponse();
         JsonNodeFactory jsonFactory = JsonNodeFactory.instance;
         ArrayNode arrayNode = new ArrayNode(jsonFactory);
+        System.out.println("NOMBRE*****************");
+        System.out.println(nombre);
+        System.out.println("NOMBRE*****************");
         try {
-            List<Panamericano> panamericanos = service.buscar(nombre);
-            for (Panamericano panamericano : panamericanos) {
-                ObjectNode node = JsonHelper.createJson(panamericano, jsonFactory, new String[]{"*"});
-                arrayNode.add(node);
-            }
-            response.setData(arrayNode);
+            Panamericano panamericanos = service.buscar(nombre);
+            response.setData(panamericanos);
             response.setMessage("Deporte Encontrado");
             response.setSuccess(Boolean.TRUE);
         } catch (PhobosException e) {

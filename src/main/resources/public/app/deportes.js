@@ -12,7 +12,7 @@ new Vue({
             modalSize: 'modal-lg',
             processing: false
         },
-        nombre:null
+        nombre:null,
     },
     mounted() {
         const $vue = this;
@@ -82,16 +82,23 @@ new Vue({
             $vue.deporte = deporte;
         },
         buscarContacto(){
+         let $vue = this;
+         console.log("***********************");
+         console.log(this.nombre);
          axios.get("/admin/search",{params:{nombre:this.nombre}}).then(response => {
-                if (response.data.success) {
-                    console.log(response.data.data)
-                    $vue.deportes = response.data.data;
-                } else {
-                    notify2(response.data.message, "error");
-                }
-            }).catch((err) => {
-                notify2(MESSAGES.errorComunicacion, "error");
+                    $vue.datos(response.data.data);
             });
+        },
+        datos(encontrado){
+             swal.fire({
+                title: " Datos Encontrados ....",
+                text: `nombre: ${encontrado.nombre}, numero: ${encontrado.descripcion}`,
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar"
+            });
+        
         }
     }
 });
