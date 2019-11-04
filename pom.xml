@@ -7,7 +7,7 @@
     <artifactId>panamericanos</artifactId>
     <version>1.0</version>
 
-    <name>panamericanos</name>
+    <name>contactos</name>
 
 
     <parent>
@@ -98,6 +98,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>spring-boot-docker</finalName>
     </build>
 
 
